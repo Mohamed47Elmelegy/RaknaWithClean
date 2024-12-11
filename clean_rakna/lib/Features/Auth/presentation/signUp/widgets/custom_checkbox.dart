@@ -1,3 +1,4 @@
+import 'package:clean_rakna/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/theme/colors_theme.dart';
 
@@ -40,24 +41,15 @@ class CustomCheckboxState extends State<CustomCheckbox> {
         width: 24.0,
         height: 24.0,
         decoration: BoxDecoration(
-          color: _isChecked ? Colors.green : Colors.white,
+          color: _isChecked ? AppColors.goldenYellow : Colors.white,
           border: Border.all(
             color: _isChecked ? Colors.transparent : AppColors.greyScale50,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(4),
         ),
         alignment: Alignment.center,
-        child: _isChecked
-            ? const Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Icon(
-                  Icons.check,
-                  size: 16.0,
-                  color: Colors.white,
-                ),
-              )
-            : null,
+        child: _isChecked ? Image.asset(Assets.imagesCheck) : null,
       ),
     );
   }

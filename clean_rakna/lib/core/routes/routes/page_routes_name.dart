@@ -11,4 +11,6 @@ class PageRoutesName {
   static const qrDetails = "/qr-details";
   static const report = "/report";
   static const history = "/history";
+  static const notification = "/notification";
+  static const help = "/help";
 }

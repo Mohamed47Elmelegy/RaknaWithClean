@@ -15,8 +15,16 @@ class Assets {
   static const String imagesApple = "assets/images/Apple.svg";
 
   /// Assets for imagesCheck
-  /// assets/images/Check.svg
-  static const String imagesCheck = "assets/images/Check.svg";
+  /// assets/images/check.png
+  static const String imagesCheck = "assets/images/check.png";
+
+  /// Assets for imagesDvider
+  /// assets/images/dvider.png
+  static const String imagesDvider = "assets/images/dvider.png";
+
+  /// Assets for imagesEdite
+  /// assets/images/Edite.svg
+  static const String imagesEdite = "assets/images/Edite.svg";
 
   /// Assets for imagesFacebook
   /// assets/images/Facebook.svg
@@ -26,9 +34,25 @@ class Assets {
   /// assets/images/Google.svg
   static const String imagesGoogle = "assets/images/Google.svg";
 
+  /// Assets for imagesHelp
+  /// assets/images/help.svg
+  static const String imagesHelp = "assets/images/help.svg";
+
+  /// Assets for imagesHistory
+  /// assets/images/history.svg
+  static const String imagesHistory = "assets/images/history.svg";
+
+  /// Assets for imagesHomeMenu
+  /// assets/images/HomeMenu.svg
+  static const String imagesHomeMenu = "assets/images/HomeMenu.svg";
+
   /// Assets for imagesK
   /// assets/images/K.png
   static const String imagesK = "assets/images/K.png";
+
+  /// Assets for imagesLogOut
+  /// assets/images/log_out.svg
+  static const String imagesLogOut = "assets/images/log_out.svg";
 
   /// Assets for imagesLoginTopRight
   /// assets/images/loginTopRight.svg
@@ -50,9 +74,25 @@ class Assets {
   /// assets/images/N.svg
   static const String imagesN = "assets/images/N.svg";
 
+  /// Assets for imagesNotifications
+  /// assets/images/notifications.svg
+  static const String imagesNotifications = "assets/images/notifications.svg";
+
+  /// Assets for imagesProfil
+  /// assets/images/profil.png
+  static const String imagesProfil = "assets/images/profil.png";
+
+  /// Assets for imagesProfilePicture
+  /// assets/images/Profile_picture.png
+  static const String imagesProfilePicture = "assets/images/Profile_picture.png";
+
   /// Assets for imagesR
   /// assets/images/R.svg
   static const String imagesR = "assets/images/R.svg";
+
+  /// Assets for imagesReports
+  /// assets/images/reports.svg
+  static const String imagesReports = "assets/images/reports.svg";
 
   /// Assets for imagesSignInlogo
   /// assets/images/SignInlogo.svg

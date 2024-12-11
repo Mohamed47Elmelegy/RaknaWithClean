@@ -22,7 +22,6 @@ class SignUpViewBody extends StatefulWidget {
   @override
   State<SignUpViewBody> createState() => _SignUpViewBodyState();
 }
-
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   late bool isTermsAccept = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -117,54 +116,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       return ValidatorsErrors.validateEmail(value!);
                     },
                   ),
-                  // const Gap(20),
-                  // Text(
-                  //   'Phone Number',
-                  //   style: AppTextStyles.robotoMedium13.copyWith(
-                  //     color: AppColors.goldenYellow,
-                  //   ),
-                  // ),
-                  // const Gap(7),
-                  // CustomTextField(
-                  //   onSaved: (value) {
-                  //     phoneNumber = value!;
-                  //   },
-                  //   hintColor: AppColors.greydark,
-                  //   outlineInputBorderColor: AppColors.goldenYellow,
-                  //   fillColor: AppColors.greyScale50,
-                  //   hint: "+20 111 111 1111",
-                  //   suffixWidget: const Icon(
-                  //     Icons.call_rounded,
-                  //     color: AppColors.goldenYellow,
-                  //   ),
-                  //   onValidate: (value) {
-                  //     return ValidatorsErrors.validatePhoneNumber(value!);
-                  //   },
-                  // ),
-                  // const Gap(20),
-                  // Text(
-                  //   'Plate Number',
-                  //   style: AppTextStyles.robotoMedium13.copyWith(
-                  //     color: AppColors.goldenYellow,
-                  //   ),
-                  // ),
-                  // const Gap(7),
-                  // CustomTextField(
-                  //   onSaved: (value) {
-                  //     plateNumber = value!;
-                  //   },
-                  //   hintColor: AppColors.greydark,
-                  //   outlineInputBorderColor: AppColors.goldenYellow,
-                  //   fillColor: AppColors.greyScale50,
-                  //   hint: "Enter your plate number",
-                  //   suffixWidget: const Icon(
-                  //     Icons.car_crash_rounded,
-                  //     color: AppColors.goldenYellow,
-                  //   ),
-                  //   onValidate: (value) {
-                  //     return ValidatorsErrors.validateCarPlateNumber(value!);
-                  //   },
-                  // ),
                   const Gap(20),
                   Text(
                     'Password',
@@ -188,7 +139,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       return ValidatorsErrors.validatePassword(value!);
                     },
                   ),
-                  const Gap(6),
+                  const Gap(23),
                   TermsAndConditionsCheckbox(
                     onChanged: (value) {
                       isTermsAccept = value;
