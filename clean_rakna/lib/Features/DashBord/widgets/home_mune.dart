@@ -1,13 +1,13 @@
-import 'package:clean_rakna/Features/Auth/presentation/DashBord/widgets/custom_drower_list.dart';
+import 'package:clean_rakna/Features/DashBord/widgets/custom_drower_list.dart';
+import 'package:clean_rakna/core/functions/get_user.dart';
 import 'package:clean_rakna/core/routes/routes/page_routes_name.dart';
 import 'package:clean_rakna/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-
-import '../../../../../core/config/constants.dart';
-import '../../../../../core/theme/text_theme.dart';
-import '../../../../../core/utils/app_images.dart';
+import '../../../core/config/constants.dart';
+import '../../../core/theme/text_theme.dart';
+import '../../../core/utils/app_images.dart';
 
 class HomeMenuDrawer extends StatelessWidget {
   final String? userName;
@@ -42,7 +42,7 @@ class HomeMenuDrawer extends StatelessWidget {
                     radius: 30,
                   ),
                   const Gap(9),
-                  Text('Moahmed',
+                  Text(getUser().name,
                       style: AppTextStyles.latoMedium
                           .copyWith(color: Colors.white)),
                   const Gap(12),

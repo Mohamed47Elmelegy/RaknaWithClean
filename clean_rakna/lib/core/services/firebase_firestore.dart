@@ -1,7 +1,7 @@
-import 'package:clean_rakna/core/services/database_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../constants/backend_point.dart';
+import 'database_service.dart';
 
 class FirebaseFirestoreService implements DatabaseService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -18,13 +18,17 @@ class FirebaseFirestoreService implements DatabaseService {
   }
 
   @override
-  Future<Map<String, dynamic>> getData(
-      {required String path, required String documentId}) async {
-    var data = await firestore
-        .collection(BackendPoint.getDataFromUsersCollection)
-        .doc(documentId)
-        .get();
-    return data.data() as Map<String, dynamic>;
+  Future<dynamic> getData({required String path, String? documentId}) async {
+    if (documentId != null) {
+      var data = await firestore
+          .collection(BackendPoint.getUser)
+          .doc(documentId)
+          .get();
+      return data.data();
+    } else {
+      var data = await firestore.collection(path).get();
+      return data.docs.map((e) => e.data()).toList();
+    }
   }
 
   @override

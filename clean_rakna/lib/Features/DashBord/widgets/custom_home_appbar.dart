@@ -1,9 +1,10 @@
+import 'package:clean_rakna/core/config/constants.dart';
 import 'package:clean_rakna/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../../core/config/constants.dart';
-import '../../../../../core/theme/colors_theme.dart';
-import '../../../../../core/utils/app_images.dart';
+
+import '../../../core/functions/get_user.dart';
+import '../../../core/utils/app_images.dart';
 
 class CustomHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomHomeAppbar({super.key});
@@ -26,7 +27,7 @@ class CustomHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
               width: Constants.mediaQuery.width * 0.6,
               height: 58,
               decoration: BoxDecoration(
-                color: AppColors.greydark,
+                color: const Color(0xff3C3F46),
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Row(
@@ -44,7 +45,7 @@ class CustomHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "Hello Mohamed Elmelegy erasd",
+                      'Hello. ${getUser().name}',
                       style: AppTextStyles.robotoBold
                           .copyWith(color: Colors.white, fontSize: 16),
                       overflow: TextOverflow.ellipsis,

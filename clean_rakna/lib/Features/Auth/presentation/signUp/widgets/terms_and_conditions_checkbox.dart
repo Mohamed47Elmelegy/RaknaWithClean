@@ -29,21 +29,27 @@ class TermsAndConditionsCheckboxState
           },
           isChecked: isTermsAccept,
         ),
-        const Gap(28),
-        Row(
-          children: [
-            Text(
-              textAlign: TextAlign.center,
-              'i agree to the terms of service and',
-              style: AppTextStyles.bebasRegular15.copyWith(color: Colors.white),
+        const Gap(8.5),
+        Expanded(
+          child: FittedBox(
+            child: Row(
+              children: [
+                Text.rich(
+                  TextSpan(
+                      text: 'i agree to the terms of service and',
+                      style: AppTextStyles.bebasRegular15
+                          .copyWith(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: ' privacy police',
+                          style: AppTextStyles.bebasRegular15
+                              .copyWith(color: AppColors.blue),
+                        ),
+                      ]),
+                ),
+              ],
             ),
-            const Gap(5),
-            Text(
-              ' privacy police',
-              style:
-                  AppTextStyles.bebasRegular15.copyWith(color: AppColors.blue),
-            ),
-          ],
+          ),
         ),
       ],
     );

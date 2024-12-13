@@ -2,7 +2,7 @@ import 'package:clean_rakna/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/utils/app_images.dart';
+import '../../../core/utils/app_images.dart';
 
 class DrawerListTile extends StatelessWidget {
   final String icon;

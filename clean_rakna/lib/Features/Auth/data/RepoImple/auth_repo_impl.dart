@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/config/ansicolor.dart';
 import '../../../../core/constants/backend_point.dart';
+import '../../../../core/constants/prefs.dart';
 import '../../../../core/errors/custom_exception.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/services/database_service.dart';
 import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/services/shared_preferences_sengltion.dart';
 import '../../domain/entity/user_entities.dart';
 import '../../domain/repositories/auth_repo.dart';
 import '../models/user_model.dart';
@@ -39,6 +42,7 @@ class AuthRepoImpl extends AuthRepo {
       addUserData(
         user: userEntity,
       );
+      saveUserData(user: userEntity);
       var fetchedUserEntity = await getUserData(userId: user.uid);
 
       return Right(fetchedUserEntity);
@@ -76,6 +80,7 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
       );
       var userEntity = await getUserData(userId: user.uid);
+      saveUserData(user: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       return Left(
@@ -102,6 +107,7 @@ class AuthRepoImpl extends AuthRepo {
       user = await firbaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFirebaseUser(user);
       await syncUserData(user, userEntity);
+      saveUserData(user: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       deleteUser(user);
@@ -137,12 +143,13 @@ class AuthRepoImpl extends AuthRepo {
     User? user;
     try {
       user = await firbaseAuthService.signInWithFacebook();
-      var userEntities = UserModel.fromFirebaseUser(user);
+      var userEntity = UserModel.fromFirebaseUser(user);
       await syncUserData(
         user,
-        userEntities,
+        userEntity,
       );
-      return Right(userEntities);
+      saveUserData(user: userEntity);
+      return Right(userEntity);
     } on CustomException catch (e) {
       deleteUser(user);
       log(
@@ -163,19 +170,9 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future addUserData({
-    required UserEntities user,
-  }) async {
-    await databaseService.addData(
-        path: BackendPoint.addDataToUsersCollection,
-        data: user.toMap(),
-        documentId: user.uId);
-  }
-
-  @override
   Future<UserEntities> getUserData({required String userId}) async {
     var userData = await databaseService.getData(
-      path: BackendPoint.getDataFromUsersCollection,
+      path: BackendPoint.getUser,
       documentId: userId,
     );
     return UserModel.fromJson(userData);
@@ -184,5 +181,21 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future signOut() async {
     await firbaseAuthService.signOut();
+  }
+
+  @override
+  Future addUserData({
+    required UserEntities user,
+  }) async {
+    await databaseService.addData(
+        path: BackendPoint.addUser,
+        data: UserModel.fromEntity(user).toMap(),
+        documentId: user.uId);
+  }
+
+  @override
+  Future saveUserData({required UserEntities user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await Prefs.setString(SharedPrefs.userData, jsonData);
   }
 }
