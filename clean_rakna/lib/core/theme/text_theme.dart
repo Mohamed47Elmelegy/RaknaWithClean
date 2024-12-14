@@ -89,7 +89,7 @@ class AppTextStyles {
   static const TextStyle jostColor = TextStyle(
     fontSize: 28,
     fontFamily: 'Jost',
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w400,
   );
 
   // Lato style

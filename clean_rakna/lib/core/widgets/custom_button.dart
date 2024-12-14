@@ -11,12 +11,16 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.width,
     this.height,
+    this.color,
+    this.textColor,
   });
 
   final VoidCallback? onTap;
   final String text;
   final double? width;
   final double? height;
+  final Color? color;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +32,10 @@ class CustomButton extends StatelessWidget {
           children: [
             Container(
               decoration: ShapeDecoration(
-                  color: const Color(0XFF4B4A4A),
+                  color: color ?? AppColors.greydark,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                        width: 1, color: AppColors.greyScale50),
+                    side: BorderSide(
+                        width: 1, color: color ?? AppColors.greyScale50),
                     borderRadius: BorderRadius.circular(21),
                   ),
                   shadows: const [
@@ -48,7 +52,7 @@ class CustomButton extends StatelessWidget {
                 child: Text(
                   text,
                   style: AppTextStyles.interSemiBold17
-                      .copyWith(color: Colors.white),
+                      .copyWith(color: textColor ?? Colors.white),
                 ),
               ),
             )

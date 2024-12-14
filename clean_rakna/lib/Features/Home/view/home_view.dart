@@ -1,11 +1,11 @@
-import 'package:clean_rakna/Features/DashBord/widgets/home_mune.dart';
+import 'package:clean_rakna/Features/Home/widgets/home_mune.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/colors_theme.dart';
 import '../widgets/custom_home_appbar.dart';
-import '../widgets/dashboard_view_body.dart';
+import '../widgets/home_view_body.dart';
 
-class DashBoardView extends StatelessWidget {
-  const DashBoardView({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class DashBoardView extends StatelessWidget {
       appBar: CustomHomeAppbar(),
       drawer: HomeMenuDrawer(),
       backgroundColor: AppColors.primaryColor,
-      body: DashboardViewBody(),
+      body: HomeViewBody(),
     );
   }
 }

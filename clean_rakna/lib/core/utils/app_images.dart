@@ -70,6 +70,10 @@ class Assets {
   /// assets/images/logoRight.png
   static const String imagesLogoRight = "assets/images/logoRight.png";
 
+  /// Assets for imagesMap
+  /// assets/images/map.svg
+  static const String imagesMap = "assets/images/map.svg";
+
   /// Assets for imagesN
   /// assets/images/N.svg
   static const String imagesN = "assets/images/N.svg";
@@ -77,6 +81,10 @@ class Assets {
   /// Assets for imagesNotifications
   /// assets/images/notifications.svg
   static const String imagesNotifications = "assets/images/notifications.svg";
+
+  /// Assets for imagesParking
+  /// assets/images/parking.svg
+  static const String imagesParking = "assets/images/parking.svg";
 
   /// Assets for imagesProfil
   /// assets/images/profil.png
@@ -105,5 +113,9 @@ class Assets {
   /// Assets for imagesSplashKLogo
   /// assets/images/splashKLogo.svg
   static const String imagesSplashKLogo = "assets/images/splashKLogo.svg";
+
+  /// Assets for imagesStaticPark
+  /// assets/images/staticPark.png
+  static const String imagesStaticPark = "assets/images/staticPark.png";
 }
 
